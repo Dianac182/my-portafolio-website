@@ -14,7 +14,6 @@ body {
 
 header,
 main,
-footer,
 section,
 div {
   box-sizing: border-box;
@@ -52,29 +51,39 @@ Header Section
 *
 */
 
-header {
+header, main {
 	padding: 0 calc((100% - 1100px)/2);
+	/* background-color: #deeaee; */
+}
+
+header {
+	background: url("../img/abstract-2829961_1280.png") no-repeat;
+	background-size: cover;
+	height: 20em;
+	position: relative;
 }
 
 .headings-area {
-	position: relative;
 	display: flex;
+	position: absolute;
+	justify-content: flex-end;
 	align-items: center;
-}
-
-.logo {
-	padding: 1.5em 0;
-	width: 110px;
-	height: 100px;
 }
 
 .headings {
 	display: flex;
 	flex-direction: column;
-	position: absolute;
-	width: 70%;
-	right: 0;
+	padding: 1em 0 0 1em;
+	width: 80%;
 	color: #2d3c49;
+}
+
+.logo {
+	width: 110px;
+	height: 100px;
+	position: absolute;
+	top: 5em;
+	right: 2em;
 }
 
 .name-heading {
@@ -85,11 +94,6 @@ header {
 .profession-heading {
 	text-align: right;
 	font-size: 2em;
-}
-
-hr {
-	margin: 2em 0;
-	border-top: 3px solid #7d97ad;
 }
 
 .image-banner {
@@ -103,10 +107,6 @@ Main Section
 *
 */
 
-main {
-	padding: 0 calc((100% - 1100px)/2);
-}
-
 .projects-heading {
 	padding-top: 1.2em;
 	font-size: 2em;
@@ -116,6 +116,7 @@ main {
 .my-projects {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	padding: 1em 0;
 }
 
@@ -123,18 +124,31 @@ main {
 	display: flex;
 	flex-direction: column;
 	width: 18em;
-	max-width: 430px;
+	max-width: 360px;
 	padding: 1.5em 0;
 }
 
 .project__image {
 	min-height: 14em;
+	max-height: 12em;
+	border-radius: 10px;
 }
 
-.project__title, .project__github {
-	display: inline-block;
+.project__info {
+	display: flex;
+	align-items: center;
+	margin: 0 auto;
+	padding: 0.4em 0 0 0.7em;
+}
+
+.project__github {
+	padding-right: 0.2em;
+	font-size: 1.7em;
+	color: #2d3c49;
+}
+
+.project__title, .project__tools {
 	margin: 0;
-	padding-top: 0.5em;
 	text-align: center;
 	font-size: 0.9em;
 	color: #2d3c49;
@@ -145,7 +159,11 @@ main {
 	text-transform: uppercase;
 }
 
-.project__github i {
+.project__tools {
+	padding-top: 0.4em;
+}
+
+.project__github i, .project__tools i {
 	color:  #2d3c49;
 }
 
@@ -158,6 +176,8 @@ Footer Section
 
 footer {
 	display: flex;
+	flex-direction: column;
+	text-align: center;
 	padding: 0 calc((100% - 1100px)/2);
 	background-color: #181A14;
 	color: #e7e7e7;
@@ -165,14 +185,14 @@ footer {
 
 .copy-right {
 	margin: 0;
-	padding: 1.5em 0;
+	padding: 1.1em 0;
 	width: 50%;
 	font-weight: 900;
 }
 
 .social-media {
 	position: relative;
-	padding: 1.5em 0;
+	padding: 1.1em 0;
 	width: 50%;
   font-size: 1em;
 }
@@ -190,14 +210,9 @@ footer {
   color: #e7e7e7;
 }
 
-@media screen and (max-width: 460px) {
+@media only screen and (max-width: 460px) {
 	.headings-area {
 		flex-direction: column;
-	}
-
-	.headings {
-		position: static;
-		right: auto;
 	}
 
 	.name-heading {
@@ -217,9 +232,8 @@ footer {
 		width: 100%;
 	}
 
-	footer {
-		flex-direction: column;
-		text-align: center;
+	.copy-right {
+		width: 100%;
 	}
 
 	.social-media {
@@ -229,15 +243,26 @@ footer {
 	.social-media__list {
 		text-align: center;
 	}
-
-	.copy-right {
-		width: 100%;
-	}
 }
 
-@media screen and (min-width: 461px) {
+@media only screen and (min-width: 461px) {
+	header {
+		height: 22em;
+	}
+	
 	.headings-area {
 		padding: 0 2.5em;
+	}
+
+	.headings {
+		position: absolute;
+		padding: 6em 0 0 5em;
+	}
+
+	.logo {
+		right: auto;
+		top: 6em;
+		left: 18em;
 	}
 
 	.name-heading {
@@ -251,17 +276,15 @@ footer {
 	}
 
 	main {
-		padding: 0 2em;
+		padding: 0 3em;
 	}
 	
 	.project {
-		margin: 0 auto;
 		width: 100%;
 	}
 
-	footer {
-		flex-direction: column;
-		text-align: center;
+	.copy-right {
+		width: 100%;
 	}
 
 	.social-media {
@@ -271,26 +294,40 @@ footer {
 	.social-media__list {
 		text-align: center;
 	}
-
-	.copy-right {
-		width: 100%;
-	}
 }
 
-@media screen and (min-width: 525px) {
-	main, footer {
-		padding: 0 3em;
+@media only screen and (min-width: 600px) and (max-width: 729px) {
+ .headings {
+	 left: 78px;
+ }
+}
+
+@media only screen and (min-width: 730px) and (max-width: 900px) {
+	header {
+		height: 27em;
 	}
 
-	.name-heading, .profession-heading {
-		text-align: center;
+	.headings-area, .logo, .headings {
+		position: static;
 	}
-}	
 
-@media screen and (min-width: 730px) {
+	.headings-area {
+		flex-direction: row;
+	}
+
+	.headings {
+		padding: 0;
+		width: 70%;
+		order: 2;
+	}
+
+	.logo {
+		order: 1;
+	}
+
 	main {
+		padding: 0 auto;
 		margin: 0 auto;
-		max-width: 700px;
 	}
 
 	.project {
@@ -306,24 +343,43 @@ footer {
 		flex-direction: row;
 	}
 
-	.copy-right {
-		order: 1;
-	}
-
 	.social-media {
 		order: 2;
 	}
+
+	.copy-right {
+		order: 1;
+	}
 }
 
-@media screen and (min-width: 880px) {
+@media only screen and (min-width: 901px) {
 	header, main {
 		margin: 0 auto;
 		padding: 0;
-		max-width: 830px;
+		max-width: 870px;
+	}
+
+	.headings-area, .logo, .headings {
+		position: static;
+	}
+
+	.headings-area {
+		flex-direction: row;
 	}
 
 	.headings-area {
 		padding: 0;
+	}
+
+	.headings {
+		padding: 0;
+		width: 65%;
+		order: 2;
+	}
+
+	.logo {
+		margin-left: 2em;
+		order: 1;
 	}
 
 	.name-heading {
@@ -336,26 +392,42 @@ footer {
 		font-size: 2em;
 	}
 
+	.projects-heading {
+		margin-left: 1em;
+	}
+
 	.project {
-		margin: 0 auto;
-		/* padding: 0; */
-		max-width: 830px;
-		margin-right: 3em;
+		margin-right: 2.5em;
 		width: 29%;
 	}
 
 	.project:nth-child(3), .project:nth-child(6)  {
 		margin-right: 0;
  }
+
+ footer {
+	 flex-direction: row;
+ }
+
+ .social-media {
+	order: 2;
 }
 
-@media screen and (min-width: 960px) {
-	
+.copy-right {
+	order: 1;
+}
+}
+
+@media only screen and (min-width: 960px) {
 	.copy-right {
 		text-align: left;
 	}
 
 	.social-media__list {
 		text-align: right;
+	}
+
+	footer {
+		padding: 0 calc((100% - 870px)/2);
 	}
 }
