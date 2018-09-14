@@ -1,6 +1,6 @@
-# Build a Portafolio Site
+# Build a Portfolio Site
 
-This is the second project that belongs to the Front-end Development from Udacity. This is my portafolio website. For this, a [design mockup](https://github.com/Dianac182/my-portafolio-website/blob/master/design-mockup-portfolio.pdf) was delivered to be replicated using HTML and CSS and the responsive design techniques learned through the courses:
+This is the second project that belongs to the Front-end Development from Udacity. This is my portfolio website. For this, a [design mockup](https://github.com/Dianac182/my-portfolio-website/blob/master/design-mockup-portfolio.pdf) was delivered to be replicated using HTML and CSS and the responsive design techniques learned through the courses:
 
 - [Responsive Web Design Fundamentals](https://eu.udacity.com/course/responsive-web-design-fundamentals--ud893).
 - [Responsive Images](https://eu.udacity.com/course/responsive-images--ud882).
@@ -25,4 +25,4 @@ If you want to contribute to this project, just make sure to follow the [Udacity
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.txt](https://github.com/Dianac182/my-portafolio-website/blob/master/LICENSE.txt) file for details
+This project is licensed under the MIT License - see the [LICENSE.txt](https://github.com/Dianac182/my-portfolio-website/blob/master/LICENSE.txt) file for details

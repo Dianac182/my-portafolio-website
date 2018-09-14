@@ -15,7 +15,8 @@ body {
 header,
 main,
 section,
-div {
+div,
+span {
   box-sizing: border-box;
   width: 100%;
   margin: 0;
@@ -41,7 +42,9 @@ a {
 }
 
 img {
-  max-width: 100%;
+	max-width: 100%;
+	width: 100%;
+	height: 100%;
 }
 
 
@@ -51,19 +54,36 @@ Header Section
 *
 */
 
-header, main {
-	padding: 0 calc((100% - 1100px)/2);
-	/* background-color: #deeaee; */
-}
-
 header {
-	background: url("../img/abstract-2829961_1280.png") no-repeat;
+	background: url(../img/abstract-2829961_1280.png) no-repeat;
 	background-size: cover;
 	height: 20em;
-	position: relative;
 }
 
 .headings-area {
+	padding: 1.5em;
+	padding-left: 6em;
+}
+
+.headings {
+	text-align: center;
+}
+
+.name-heading {
+	font-size: 7vw;
+}
+
+.profession-heading {
+	font-size: 3.5vw;
+}
+
+.logo {
+	padding-left: 25vw;
+	width: 110px;
+	height: 100px;
+}
+
+/* .headings-area {
 	display: flex;
 	position: absolute;
 	justify-content: flex-end;
@@ -95,10 +115,7 @@ header {
 	text-align: right;
 	font-size: 2em;
 }
-
-.image-banner {
-	width: 100%;
-}
+ */
 
 
 /*
@@ -107,8 +124,12 @@ Main Section
 *
 */
 
+main {
+	padding: 0 1.7em;
+}
+
 .projects-heading {
-	padding-top: 1.2em;
+	padding-top: 2em;
 	font-size: 2em;
 	color: #7d97ad;
 }
@@ -116,57 +137,84 @@ Main Section
 .my-projects {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
 	padding: 1em 0;
 }
 
 .project {
 	display: flex;
 	flex-direction: column;
-	width: 18em;
-	max-width: 360px;
-	padding: 1.5em 0;
-}
-
-.project__image {
-	min-height: 14em;
-	max-height: 12em;
-	border-radius: 10px;
+	padding: 1em 0;
+	height: 70vw;
 }
 
 .project__info {
+	position: relative;
+	height: 100%;
+}
+
+.project__image, 
+.project__back {
+	height: 100%;
+	position: absolute;
+	top: 0;
+}
+
+.project__image {
+	z-index: -1;
+}
+
+.image {
+	border-radius: 12px;
+}
+
+.project__back {
 	display: flex;
-	align-items: center;
-	margin: 0 auto;
-	padding: 0.4em 0 0 0.7em;
+	flex-direction: column;
+	justify-content: center;
+	border-radius: 12px;
+	background: linear-gradient(to right, #6f66d3, #9591e4);
+	-webkit-transition: opacity 1s ease;
+	transition: opacity 1s ease;
+	opacity: 0;
 }
 
-.project__github {
-	padding-right: 0.2em;
-	font-size: 1.7em;
-	color: #2d3c49;
-}
-
-.project__title, .project__tools {
-	margin: 0;
-	text-align: center;
-	font-size: 0.9em;
-	color: #2d3c49;
+.project__back:hover {
+	opacity: 1;
 }
 
 .project__title {
-	font-weight: 900;
+	padding: 0.8em 1.2em;
+	text-align: center;
 	text-transform: uppercase;
+	color: #aaeaf6;
+}
+
+.project__button {
+	padding: 1.2em 0;
+	text-align: center;
+}
+
+.button {
+	display: inline-block;
+	padding: 0.7em 2em;
+	font-size: 0.8em;
+	font-weight: 900;
+	color: #aaeaf6;
+	border: #aaeaf6 solid 3px;
+	border-radius: 20px;
+	-webkit-transition: background-color 0.45s ease;
+	transition: background-color 0.45s ease;
+}
+
+.button:hover {
+	background-color: #2fb0d2;
 }
 
 .project__tools {
-	padding-top: 0.4em;
+	font-size: 0.8em;
+	font-weight: 900;
+	text-align: center;
 }
-
-.project__github i, .project__tools i {
-	color:  #2d3c49;
-}
-
 
 /*
 *
@@ -178,27 +226,15 @@ footer {
 	display: flex;
 	flex-direction: column;
 	text-align: center;
-	padding: 0 calc((100% - 1100px)/2);
 	background-color: #181A14;
 	color: #e7e7e7;
 }
 
-.copy-right {
+.copy-right, 
+.social-media {
 	margin: 0;
 	padding: 1.1em 0;
-	width: 50%;
 	font-weight: 900;
-}
-
-.social-media {
-	position: relative;
-	padding: 1.1em 0;
-	width: 50%;
-  font-size: 1em;
-}
-
-.social-media__list {
-	text-align: right;
 }
 
 .social-media__item {
@@ -210,215 +246,100 @@ footer {
   color: #e7e7e7;
 }
 
-@media only screen and (max-width: 460px) {
-	.headings-area {
-		flex-direction: column;
-	}
-
-	.name-heading {
-		font-size: 8vw;
-	}
-
-	.profession-heading {
-		font-size: 6vw;
-	}
-
-	main {
-		padding: 0 2em;
-	}
-	
-	.project {
-		margin: 0;
-		width: 100%;
-	}
-
-	.copy-right {
-		width: 100%;
-	}
-
-	.social-media {
-		width: 100%;
-	}
-
-	.social-media__list {
-		text-align: center;
-	}
-}
-
-@media only screen and (min-width: 461px) {
+@media only screen and (min-width: 600px) {
 	header {
-		height: 22em;
-	}
-	
-	.headings-area {
-		padding: 0 2.5em;
-	}
-
-	.headings {
-		position: absolute;
-		padding: 6em 0 0 5em;
+		height: 60vw;
+		max-height: 780px;
 	}
 
 	.logo {
-		right: auto;
-		top: 6em;
-		left: 18em;
-	}
-
-	.name-heading {
-		text-align: center;
-		font-size: 7vw;
-	}
-
-	.profession-heading {
-		text-align: center;
-		font-size: 5vw;
-	}
-
-	main {
-		padding: 0 3em;
-	}
-	
-	.project {
-		width: 100%;
-	}
-
-	.copy-right {
-		width: 100%;
-	}
-
-	.social-media {
-		width: 100%;
-	}
-
-	.social-media__list {
-		text-align: center;
+		padding-left: 30vw;
 	}
 }
 
-@media only screen and (min-width: 600px) and (max-width: 729px) {
- .headings {
-	 left: 78px;
- }
-}
-
-@media only screen and (min-width: 730px) and (max-width: 900px) {
-	header {
-		height: 27em;
-	}
-
-	.headings-area, .logo, .headings {
-		position: static;
-	}
-
+@media only screen and (min-width: 730px) {
 	.headings-area {
-		flex-direction: row;
+		display: flex;
+		justify-content: flex-end;
 	}
 
 	.headings {
-		padding: 0;
-		width: 70%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: right;
+		width: 42vw;
+		max-width: 445px;
 		order: 2;
 	}
 
+	.name-heading {
+		font-size: 5.7vw;
+	}
+
+	.profession-heading {
+		font-size: 2.6vw;
+	}
+
 	.logo {
+		padding: 0 2.5em;
 		order: 1;
 	}
 
-	main {
-		padding: 0 auto;
-		margin: 0 auto;
-	}
-
 	.project {
-		width: 45%;
-		margin: 0;
+		width: calc((100% - 1.7em)/2);
+		height: 40vw;
 	}
 	
 	.project:nth-child(odd) {
-	 	margin-right: 3.2em;
+	 	margin-right: 1.7em;
 	}
 
 	footer {
 		flex-direction: row;
+		padding: 1em 1.7em;
 	}
 
 	.social-media {
+		width: 50%;
 		order: 2;
 	}
 
 	.copy-right {
+		width: 50%;
 		order: 1;
 	}
 }
 
-@media only screen and (min-width: 901px) {
-	header, main {
-		margin: 0 auto;
-		padding: 0;
-		max-width: 870px;
-	}
-
-	.headings-area, .logo, .headings {
-		position: static;
-	}
-
-	.headings-area {
-		flex-direction: row;
-	}
-
-	.headings-area {
-		padding: 0;
-	}
-
-	.headings {
-		padding: 0;
-		width: 65%;
-		order: 2;
-	}
-
-	.logo {
-		margin-left: 2em;
-		order: 1;
-	}
-
+@media only screen and (min-width: 1100px) {
 	.name-heading {
-		text-align: right;
-		font-size: 4em;
+		font-size: 3.7em;
 	}
 
 	.profession-heading {
-		text-align: right;
-		font-size: 2em;
-	}
-
-	.projects-heading {
-		margin-left: 1em;
+		font-size: 1.7em;
 	}
 
 	.project {
-		margin-right: 2.5em;
-		width: 29%;
+		margin-right: 1.7em;
+		width: calc((100% - 1.7em*2)/3);
+		height: 30vw;
+		max-height: 360px;
 	}
 
 	.project:nth-child(3), .project:nth-child(6)  {
 		margin-right: 0;
- }
-
- footer {
-	 flex-direction: row;
- }
-
- .social-media {
-	order: 2;
+	}	
 }
 
-.copy-right {
-	order: 1;
-}
-}
+@media only screen and (min-width: 1300px) {
+	header, 
+	main {
+		margin: 0 auto;
+		padding: 0;
+		max-width: 1300px;
+	}
 
-@media only screen and (min-width: 960px) {
 	.copy-right {
 		text-align: left;
 	}
@@ -428,6 +349,6 @@ footer {
 	}
 
 	footer {
-		padding: 0 calc((100% - 870px)/2);
+		padding: 1.1em calc((100% - 1300px)/2);
 	}
 }
